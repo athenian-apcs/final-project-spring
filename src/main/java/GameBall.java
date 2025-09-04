@@ -8,17 +8,21 @@ public class GameBall {
     private int height = 100;
     // The current speed of the ball, in the y direction
     private int yVelocity = -3;
+    private int xPos = 200;
 
     public GameBall() {}
 
     /**
      * What the ball should do each frame
      */
-    public void act() {
+    public void act(boolean spaceDown) {
         height += yVelocity;
         // Make the ball bounce
         if (height < 0 || height > 390) {
             yVelocity *= -1;
+        }
+        if (spaceDown) {
+            xPos += 1;
         }
     }
 
@@ -27,6 +31,6 @@ public class GameBall {
     }
 
     public void paint(Graphics g) {
-        g.fillOval(200, this.getHeight(), 10,10);
+        g.fillOval(xPos, this.getHeight(), 10,10);
     }
 }

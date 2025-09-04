@@ -12,6 +12,7 @@ public class GameManager {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameBoard = new GameBoard();
         window.add(gameBoard);
+        window.addKeyListener(gameBoard);
         window.pack();
         window.setVisible(true);
 
